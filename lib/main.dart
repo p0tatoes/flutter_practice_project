@@ -1,3 +1,5 @@
+import 'package:basic_widgets_moderate/screens/home_api_screen.dart';
+import 'package:basic_widgets_moderate/screens/home_screen.dart';
 import 'package:basic_widgets_moderate/screens/index_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -28,7 +30,9 @@ class MyApp extends StatelessWidget {
                   return const IndexScreenSmall();
                 }
               },
-            )
+            ),
+        "/apihome": (context) => ApiHomeScreen(),
+        "/products": (context) => const HomeScreen(),
       },
     );
   }
@@ -154,7 +158,8 @@ class LoginScreen extends StatelessWidget {
                           Expanded(
                             child: InkWell(
                               onTap: () {
-                                Navigator.pushNamed(context, "/home");
+                                // Navigator.pushNamed(context, "/home");
+                                Navigator.pushNamed(context, "/products");
                               },
                               child: Container(
                                 alignment: Alignment.center,
@@ -191,7 +196,7 @@ class LoginScreen extends StatelessWidget {
                                 color: Colors.orange[300],
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -200,10 +205,15 @@ class LoginScreen extends StatelessWidget {
                                     color: Colors.green,
                                   ),
                                   SizedBox(width: 20.0),
-                                  Text(
-                                    "Sign in with Google",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w900),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(context, "/apihome");
+                                    },
+                                    child: Text(
+                                      "Sign in with Google",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w900),
+                                    ),
                                   ),
                                 ],
                               ),
