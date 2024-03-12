@@ -1,6 +1,8 @@
+import 'package:basic_widgets_moderate/screens/about_screen.dart';
 import 'package:basic_widgets_moderate/screens/home_api_screen.dart';
 import 'package:basic_widgets_moderate/screens/home_screen.dart';
 import 'package:basic_widgets_moderate/screens/index_screen.dart';
+import 'package:basic_widgets_moderate/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -31,7 +33,17 @@ class MyApp extends StatelessWidget {
                 }
               },
             ),
+        "/signup": (context) => const SignupScreen(),
         "/apihome": (context) => ApiHomeScreen(),
+        "/about": (context) => LayoutBuilder(
+              builder: (context, constraints) {
+                if (constraints.maxWidth > 1024) {
+                  return AboutScreen();
+                } else {
+                  return AboutScreenSmall();
+                }
+              },
+            ),
         "/products": (context) => const HomeScreen(),
       },
     );
@@ -107,7 +119,9 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/signup");
+                            },
                             child: Text(
                               "Sign up",
                               style: TextStyle(
@@ -158,8 +172,8 @@ class LoginScreen extends StatelessWidget {
                           Expanded(
                             child: InkWell(
                               onTap: () {
-                                // Navigator.pushNamed(context, "/home");
-                                Navigator.pushNamed(context, "/products");
+                                Navigator.pushNamed(context, "/home");
+                                // Navigator.pushNamed(context, "/products");
                               },
                               child: Container(
                                 alignment: Alignment.center,

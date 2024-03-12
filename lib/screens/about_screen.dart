@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class IndexScreenSmall extends StatelessWidget {
-  const IndexScreenSmall({super.key});
+class AboutScreenSmall extends StatelessWidget {
+  const AboutScreenSmall({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,9 @@ class IndexScreenSmall extends StatelessWidget {
               leading: Icon(Icons.newspaper_rounded),
               title: Text("News"),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.question_mark_rounded),
               title: Text("About"),
-              onTap: () {
-                Navigator.pushNamed(context, "/about");
-              },
             ),
             Expanded(
               child: Align(
@@ -61,22 +58,32 @@ class IndexScreenSmall extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Container(
-          width: 300,
-          height: 300,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("icon/logo.jpg"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 300,
+              height: 300,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("icon/logo.jpg"),
+                ),
+              ),
             ),
-          ),
+            SizedBox(
+              height: 50.0,
+            ),
+            Text(
+                "Flutter is convenient for making apps across different platforms. However, I find the syntax to be very 'weird' due to the nesting of widgets\n-ELOJA")
+          ],
         ),
       ),
     );
   }
 }
 
-class IndexScreen extends StatelessWidget {
-  const IndexScreen({super.key});
+class AboutScreen extends StatelessWidget {
+  const AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +104,7 @@ class IndexScreen extends StatelessWidget {
           Container(
             width: 300.0,
             color: Colors.grey[200],
-            child: Column(
+            child: const Column(
               children: [
                 ListTile(
                   leading: Icon(Icons.home_rounded),
@@ -110,9 +117,6 @@ class IndexScreen extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.question_mark_rounded),
                   title: Text("About"),
-                  onTap: () {
-                    Navigator.pushNamed(context, "/about");
-                  },
                 ),
                 Expanded(
                   child: Align(
@@ -127,16 +131,23 @@ class IndexScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Center(
-              child: Container(
-                width: 300,
-                height: 300,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("icon/logo.jpg"),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Container(
+                    width: 300,
+                    height: 300,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("icon/logo.jpg"),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Text(
+                    "Flutter is convenient for making apps across different platforms. However, I find the syntax to be very 'weird' due to the nesting of widgets\n- ELOJA")
+              ],
             ),
           ),
         ],

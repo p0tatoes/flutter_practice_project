@@ -32,8 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ip: data[i]["ip"].toString());
       pdata.add(tempData);
     }
-
-    print(pdata.length);
   }
 
   @override
