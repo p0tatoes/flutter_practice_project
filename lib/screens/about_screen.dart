@@ -7,12 +7,27 @@ class AboutScreenSmall extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple[800],
+        backgroundColor: Colors.orange[800],
         iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text(
-          "BORGIR",
-          style: TextStyle(
-              fontSize: 25.0, fontWeight: FontWeight.w900, color: Colors.white),
+        title: Row(
+          children: [
+            Text(
+              "BORGIR",
+              style: TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white),
+            ),
+            Expanded(
+              child: SizedBox(),
+            ),
+            InkWell(
+              child: Icon(Icons.arrow_back),
+              onTap: () {
+                Navigator.popUntil(context, ModalRoute.withName("/home"));
+              },
+            ),
+          ],
         ),
         centerTitle: false,
       ),
@@ -61,14 +76,10 @@ class AboutScreenSmall extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 300,
-              height: 300,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("icon/logo.jpg"),
-                ),
-              ),
+            Image.asset(
+              "assets/icon/logo.jpg",
+              width: 300.0,
+              height: 300.0,
             ),
             SizedBox(
               height: 50.0,
@@ -89,7 +100,7 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple[800],
+        backgroundColor: Colors.orange[800],
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           "BORGIR",
@@ -135,18 +146,17 @@ class AboutScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
-                  child: Container(
-                    width: 300,
-                    height: 300,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("icon/logo.jpg"),
-                      ),
-                    ),
+                  child: Image.asset(
+                    "assets/icon/logo.jpg",
+                    width: 300.0,
+                    height: 300.0,
                   ),
                 ),
-                Text(
-                    "Flutter is convenient for making apps across different platforms. However, I find the syntax to be very 'weird' due to the nesting of widgets\n- ELOJA")
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30.0),
+                  child: Text(
+                      "Flutter is convenient for making apps across different platforms. However, I find the syntax to be very 'weird' due to the nesting of widgets\n- ELOJA"),
+                )
               ],
             ),
           ),
