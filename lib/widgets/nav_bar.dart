@@ -6,9 +6,9 @@ class NavBar extends StatelessWidget {
   final bool isMobile;
 
   final List<Map<String, dynamic>> routes = [
-    {"icon": Icons.home_rounded, "name": "home", "path": "/home"},
-    {"icon": Icons.newspaper_rounded, "name": "news", "path": "/news"},
-    {"icon": Icons.question_mark_rounded, "name": "about", "path": "/about"},
+    {"icon": Icons.home_rounded, "name": "Home", "path": "/home"},
+    {"icon": Icons.newspaper_rounded, "name": "News", "path": "/news"},
+    {"icon": Icons.question_mark_rounded, "name": "About", "path": "/about"},
   ];
 
   @override
