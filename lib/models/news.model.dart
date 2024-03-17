@@ -1,5 +1,4 @@
 class NewsItem {
-  // TODO: create model for news items
   String source;
   String link;
   String og;

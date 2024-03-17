@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-// TODO: create news item card
-
 Container newsCard(
     {required String source,
     required String link,

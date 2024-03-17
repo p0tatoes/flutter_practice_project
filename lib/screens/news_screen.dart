@@ -129,8 +129,6 @@ class _NewsScreenSmallState extends State<NewsScreenSmall> {
 }
 
 Future<List<NewsItem>> loadNewsData() async {
-  // TODO: Implement data fetching and display
-
   // Fetch data from public API
   final Uri apiUrl = Uri.parse("https://ok.surf/api/v1/news-feed");
   final response = await http.get(apiUrl);
