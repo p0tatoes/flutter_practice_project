@@ -1,4 +1,5 @@
 import 'package:basic_widgets_moderate/widgets/nav_bar.dart';
+import 'package:basic_widgets_moderate/widgets/up_bar.dart';
 import 'package:flutter/material.dart';
 
 class IndexScreenSmall extends StatelessWidget {
@@ -7,16 +8,7 @@ class IndexScreenSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange[800],
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text(
-          "BORGIR",
-          style: TextStyle(
-              fontSize: 25.0, fontWeight: FontWeight.w900, color: Colors.white),
-        ),
-        centerTitle: false,
-      ),
+      appBar: uppBar(title: "Home"),
       drawer: Drawer(
         backgroundColor: Colors.blueGrey[200],
         shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
@@ -39,16 +31,7 @@ class IndexScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange[800],
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text(
-          "BORGIR",
-          style: TextStyle(
-              fontSize: 25.0, fontWeight: FontWeight.w900, color: Colors.white),
-        ),
-        centerTitle: false,
-      ),
+      appBar: uppBar(title: "Home", isMobile: false),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -58,7 +41,9 @@ class IndexScreen extends StatelessWidget {
             child: Column(
               children: [
                 Expanded(
-                  child: NavBar(),
+                  child: NavBar(
+                    isMobile: false,
+                  ),
                 )
               ],
             ),

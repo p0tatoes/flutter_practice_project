@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class NavBar extends StatelessWidget {
-  NavBar({super.key});
+  NavBar({super.key, this.isMobile = true});
+  final bool isMobile;
 
   final List<Map<String, dynamic>> routes = [
+    {"icon": Icons.home_rounded, "name": "home", "path": "/home"},
     {"icon": Icons.newspaper_rounded, "name": "news", "path": "/news"},
     {"icon": Icons.question_mark_rounded, "name": "about", "path": "/about"},
-    {"icon": Icons.home_rounded, "name": "home", "path": "/home"},
   ];
 
   @override
@@ -24,8 +25,11 @@ class NavBar extends StatelessWidget {
                   leading: Icon(routes[index]["icon"]),
                   title: Text(routes[index]["name"]),
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, routes[index]["path"]);
+                    if (isMobile) {
+                      Navigator.pop(context);
+                    }
+                    // Navigator.pushNamed(context, routes[index]["path"]);
+                    Navigator.popAndPushNamed(context, routes[index]["path"]);
                   },
                 );
               } else {

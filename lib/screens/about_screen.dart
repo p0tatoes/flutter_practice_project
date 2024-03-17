@@ -1,3 +1,5 @@
+import 'package:basic_widgets_moderate/widgets/nav_bar.dart';
+import 'package:basic_widgets_moderate/widgets/up_bar.dart';
 import 'package:flutter/material.dart';
 
 class AboutScreenSmall extends StatelessWidget {
@@ -6,69 +8,15 @@ class AboutScreenSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange[800],
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: Row(
-          children: [
-            Text(
-              "BORGIR",
-              style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white),
-            ),
-            Expanded(
-              child: SizedBox(),
-            ),
-            InkWell(
-              child: Icon(Icons.arrow_back),
-              onTap: () {
-                Navigator.popUntil(context, ModalRoute.withName("/home"));
-              },
-            ),
-          ],
-        ),
-        centerTitle: false,
-      ),
+      appBar: uppBar(title: "About"),
       drawer: Drawer(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.blueGrey[200],
         shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         child: Column(
           children: [
-            const ListTile(
-              leading: Icon(Icons.home_rounded),
-              title: Text("Home"),
-            ),
-            const ListTile(
-              leading: Icon(Icons.newspaper_rounded),
-              title: Text("News"),
-            ),
-            const ListTile(
-              leading: Icon(Icons.question_mark_rounded),
-              title: Text("About"),
-            ),
             Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    ListTile(
-                      leading: Icon(Icons.settings_rounded),
-                      title: Text("Settings"),
-                    ),
-                    ListTile(
-                      onTap: () {
-                        Navigator.popUntil(context, ModalRoute.withName("/"));
-                      },
-                      leading: Icon(Icons.logout_rounded),
-                      title: Text("Logout"),
-                    ),
-                  ],
-                ),
-              ),
-            )
+              child: NavBar(),
+            ),
           ],
         ),
       ),
@@ -99,43 +47,18 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange[800],
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text(
-          "BORGIR",
-          style: TextStyle(
-              fontSize: 25.0, fontWeight: FontWeight.w900, color: Colors.white),
-        ),
-        centerTitle: false,
-      ),
+      appBar: uppBar(title: "About", isMobile: false),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             width: 300.0,
-            color: Colors.grey[200],
-            child: const Column(
+            color: Colors.blueGrey[200],
+            child: Column(
               children: [
-                ListTile(
-                  leading: Icon(Icons.home_rounded),
-                  title: Text("Home"),
-                ),
-                ListTile(
-                  leading: Icon(Icons.newspaper_rounded),
-                  title: Text("News"),
-                ),
-                ListTile(
-                  leading: Icon(Icons.question_mark_rounded),
-                  title: Text("About"),
-                ),
                 Expanded(
-                  child: Align(
-                    alignment: FractionalOffset.bottomCenter,
-                    child: ListTile(
-                      leading: Icon(Icons.settings_rounded),
-                      title: Text("Settings"),
-                    ),
+                  child: NavBar(
+                    isMobile: false,
                   ),
                 ),
               ],
