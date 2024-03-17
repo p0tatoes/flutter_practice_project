@@ -1,6 +1,7 @@
 import 'package:basic_widgets_moderate/screens/about_screen.dart';
 import 'package:basic_widgets_moderate/screens/index_screen.dart';
 import 'package:basic_widgets_moderate/screens/login_screen.dart';
+import 'package:basic_widgets_moderate/screens/news_screen.dart';
 import 'package:basic_widgets_moderate/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +42,17 @@ class MyApp extends StatelessWidget {
                 }
               },
             ),
+        "/news": (context) => LayoutBuilder(
+              builder: (context, constraints) {
+                if (constraints.maxWidth > 1024) {
+                  // return regular size view
+                  return NewsScreen();
+                } else {
+                  // return mobile view
+                  return NewsScreenSmall();
+                }
+              },
+            )
       },
     );
   }
