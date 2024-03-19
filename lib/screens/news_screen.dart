@@ -130,8 +130,18 @@ class _NewsScreenSmallState extends State<NewsScreenSmall> {
 
 Future<List<NewsItem>> loadNewsData() async {
   // Fetch data from public API
-  final Uri apiUrl = Uri.parse("https://ok.surf/api/v1/news-feed");
-  final response = await http.get(apiUrl);
+
+  //! Does not work on MacOS
+  //! Needs to add '--disable-web-security' on 'flutter run'
+  // final Uri apiUrl = Uri.parse("https://ok.surf/api/v1/news-feed");
+
+  final Uri apiUrl = Uri.https("ok.surf", "/api/v1/news-feed");
+
+  final response = await http.get(apiUrl, headers: {
+    'content-type': 'application/json',
+    'Access-Control-Allow-Origin': "*",
+    "Accept": "*/*"
+  });
 
   if (response.statusCode != 200) {
     throw Exception("Failed to fetch news data");
